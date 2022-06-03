@@ -1,0 +1,907 @@
+<!-- header  -->
+<?php include 'inc/header.php'; ?>
+<!-- header  -->
+<div style="margin-top:12vh"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="aboutUsHeader">About Us</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <div class="wrapper">
+                    <div class="img-area">
+                        <div class="inner-area">
+                            <img src="images/aboutus/rifat.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="name">Md. Rifat</div>
+                    <div class="about">ID: 181-15-1868</div>
+                    <div class="about">Email: rifat15-1868@diu.edu.bd</div>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/Rifat.Rahman99/" target="_blank" class="fb"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/MdRifat_Rahman" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/md.rifat_rahman/" target="_blank" class="insta"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" class="yt"><i class="fab fa-youtube"></i></a>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+
+            <div class="col-md-5">
+                <div class="wrapper">
+                    <div class="img-area">
+                        <div class="inner-area">
+                            <img src="images/aboutus/rupa.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="name">Anaminni Akbar Rupa</div>
+                    <div class="about">ID: 181-15-1802</div>
+                    <div class="about">Email: anaminni15-1802@diu.edu.bd</div>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/anaminniakbar.rupa" target="_blank" class="fb"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank" class="insta"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" class="yt"><i class="fab fa-youtube"></i></a>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-bottom:5vh"></div>
+
+
+
+
+
+<!-- header  -->
+<?php include 'inc/footer.php'; ?>
+<!-- header  -->
+<!-- header  -->
+<?php include 'inc/header.php'; ?>
+<!-- header  -->
+
+    <?php
+        if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['send'])){
+            $contactInfo = $con->contactInfo($_POST);
+        }
+    ?>
+
+
+
+
+<div style="margin:12vh"></div>
+<div class="contact-div">
+        <div class="contact-clip-one"></div>
+        <div class="row container">
+            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_cmf6a3.json"  background="transparent"  speed="1"  style="width: 80%; height: 80%;"  loop  autoplay></lottie-player>
+            </div>
+            <div class="col-md-6">
+                <h1 class="text-center">Contact Us</h1>
+                <h4 style="text-align:center">We'd love to hear from you!</h4>
+
+                    <?php
+                            if (isset($contactInfo)) {
+                                echo $contactInfo;
+                            }
+                        ?>
+
+                <form action="" method="POST">
+                    <div class="contact-inputfeild">
+                        <input type="text" name="name" class="contact-inputfeild-input-text" placeholder="Name">
+                        
+                    </div>
+                    <div class="contact-inputfeild">
+                        <input type="text" name="email" class="contact-inputfeild-input-text" placeholder="Email">
+                       
+                    </div>
+                    <div class="contact-inputfeild">
+                        <input type="text" name="phone" class="contact-inputfeild-input-text" placeholder="Phone">
+                    
+                    </div>
+                    <div class="contact-inputfeild textarea">
+                        <textarea name="body" class="contact-inputfeild-textarea" placeholder="Message" cols="100%" rows="10"></textarea>
+                        
+                    </div>
+                    <div class="contact-inputfeild">
+                        <!-- <button class="button"> <span class="text-send">Send</span> </button> -->
+                        <input style="height:70px;" class="button contact-btn"  type="submit" name="send" value="Send">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+<!-- footer  -->
+<?php include 'inc/footer.php'; ?>
+<!-- footer  -->
+<!-- header  -->
+<?php include 'inc/header.php'; ?>
+<!-- header  -->
+ <!-- Our leasson Text part start from here -->
+ <div style="margin-top:12vh"></div>
+
+ 
+ <div id="our-lessons">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="our-lesson-heading"> Our Lessons </h1>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Our leasson Text  part end here -->
+    <!-- Book item start from here -->
+
+    <div id="first-page">
+
+        <div class="container">
+            <div style="margin: 50px;"></div>
+            <div class="row row-card-main">
+
+
+            <!-- php -->
+                <?php
+                    $query = "SELECT * FROM course limit 3";
+                    $post = $db->select($query);
+                    if($post){
+                            while($result = $post->fetch_assoc()){      
+                ?>
+            <!-- php -->
+
+
+                <div class="col-md-4">
+                    <div class="content-wrapper-subject">
+                        <a href="subcat.php?id=<?php echo $result['id']; ?>" class="link-style">
+                            <img class="subject-cover-image" src="admin/<?php echo $result['courseImage']; ?>" alt="">
+                            <p class="subject-cover-text"><?php echo $result['courseTitle']; ?></p>
+                        </a>
+                    </div>
+                </div>
+
+                <?php } ?> <!-- while loop end -->
+
+<?php } else { header("Location:404.php");}  ?><!-- if end --> 
+
+                <!-- php -->
+                <?php
+                    $query = "SELECT * FROM course ORDER BY id DESC limit 2 ";
+                    $post = $db->select($query);
+                    if($post){
+                            while($result = $post->fetch_assoc()){      
+                ?>
+            <!-- php -->
+
+                <div class="col-md-4">
+                    <div class="content-wrapper-subject">
+                        <a href="subcat.php?id=<?php echo $result['id']; ?>" class="link-style">
+                            <img class="subject-cover-image" src="admin/<?php echo $result['courseImage']; ?>" alt="">
+                            <p class="subject-cover-text"><?php echo $result['courseTitle']; ?></p>
+                        </a>
+                    </div>
+                </div>  
+
+            <?php } ?> <!-- while loop end -->
+            <?php } else { header("Location:404.php");}  ?><!-- if end --> 
+
+
+            <div class="col-md-4">
+                    <div class="content-wrapper-subject">
+                        <a href="quize.php" class="link-style">
+                            <img class="subject-cover-image" src="admin/uploads/courses/0a4549fc05.png" alt="">
+                            <p class="subject-cover-text">Self Test</p>
+                        </a>
+                    </div>
+                </div> 
+
+            </div>
+
+            <div style="margin: 50px;"></div>
+    </div>
+
+
+    <!-- Book item end here -->
+
+<!-- footer  -->
+<?php include 'inc/footer.php'; ?>
+<!-- footer  -->
+<!-- header  -->
+<?php include 'inc/header.php'; ?>
+<!-- header  -->
+<?php
+    Session::checkSession();
+?>
+
+    <!-- body -->
+   <div class="text-center mt-5 mb-5">
+        <h1>You are Done</h1>
+        <p> Congrats! You have just complted the test</p>
+        <p>Final Score: 
+            <?php
+                if (isset($_SESSION['score'])) {
+                    echo $_SESSION['score'];
+                    unset($_SESSION['score']);
+                }
+            ?>
+        </p>
+
+        <a href="viewans.php" class="btn btn-success">View Answer</a>
+        <a href="test.php" class="btn btn-danger">Start Again</a>
+   </div>
+    <!-- body -->
+<!-- footer  -->
+<?php include 'inc/footer.php'; ?>
+<!-- footer  -->
+<!-- header  -->
+<?php include 'inc/header.php'; ?>
+<!-- header  -->
+<!-- slider  -->
+<?php include 'inc/slider.php'; ?>
+<!-- slider  -->
+
+    <!-- our vision part start from here -->
+    <div id="our-vision">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="our-vision-heading"> Our vision is to be the source free </h3>
+                    <h3 class="our-vision-heading">and fun education for childhood learning on the internet </h3>
+                    <h3 class="our-vision-heading"> available from anywhere and without charge. </h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- our vision part end here -->
+
+    <!-- Our leasson Text part start from here -->
+
+    <div id="our-lessons">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="our-lesson-heading"> Our Lessons </h1>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Our leasson Text  part end here -->
+
+    <!-- Book item start from here -->
+
+    <div id="first-page">
+
+        <div class="container">
+            <div style="margin: 50px;"></div>
+            <div class="row row-card-main">
+
+
+            <!-- php -->
+                <?php
+                    $query = "SELECT * FROM course limit 3";
+                    $post = $db->select($query);
+                    if($post){
+                            while($result = $post->fetch_assoc()){      
+                ?>
+            <!-- php -->
+
+
+                <div class="col-md-4">
+                    <div class="content-wrapper-subject">
+                        <a href="subcat.php?id=<?php echo $result['id']; ?>" class="link-style">
+                            <img class="subject-cover-image" src="admin/<?php echo $result['courseImage']; ?>" alt="">
+                            <p class="subject-cover-text"><?php echo $result['courseTitle']; ?></p>
+                        </a>
+                    </div>
+                </div>
+
+                <?php } ?> <!-- while loop end -->
+
+<?php } else { header("Location:404.php");}  ?><!-- if end --> 
+
+                <!-- php -->
+                <?php
+                    $query = "SELECT * FROM course ORDER BY id DESC limit 2 ";
+                    $post = $db->select($query);
+                    if($post){
+                            while($result = $post->fetch_assoc()){      
+                ?>
+            <!-- php -->
+
+                <div class="col-md-4">
+                    <div class="content-wrapper-subject">
+                        <a href="subcat.php?id=<?php echo $result['id']; ?>" class="link-style">
+                            <img class="subject-cover-image" src="admin/<?php echo $result['courseImage']; ?>" alt="">
+                            <p class="subject-cover-text"><?php echo $result['courseTitle']; ?></p>
+                        </a>
+                    </div>
+                </div>  
+
+            <?php } ?> <!-- while loop end -->
+            <?php } else { header("Location:404.php");}  ?><!-- if end --> 
+            <div class="col-md-4">
+                    <div class="content-wrapper-subject">
+                        <a href="quize.php" class="link-style">
+                            <img class="subject-cover-image" src="admin/uploads/courses/0a4549fc05.png" alt="">
+                            <p class="subject-cover-text">Self Test</p>
+                        </a>
+                    </div>
+                </div> 
+
+            </div>
+            </div>
+
+            <div style="margin: 50px;"></div>
+    </div>
+
+
+    <!-- Book item end here -->
+
+
+<!-- footer  -->
+<?php include 'inc/footer.php'; ?>
+<!-- footer  -->
+
+<!-- header  -->
+<?php include 'inc/header.php'; ?>
+<!-- header  -->
+<!-- php -->
+<?php
+    if(!isset($_GET['subTle']) || $_GET['subTle'] == NULL){
+        header("Location: 404.php");
+    }else{
+        $subTle = $_GET['subTle'];
+    }
+?>
+<!-- php -->
+
+
+    <!-- letter html start here  -->
+
+<div style="margin:30px;"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <lottie-player src="https://assets6.lottiefiles.com/private_files/lf30_u4rzoljr.json"  background="transparent"  speed="1"  style="width: 450px; height: 60vh;"  loop  autoplay></lottie-player>
+
+            
+
+        </div>
+
+        <div class="okkhor-div-main">
+        
+        <?php
+        $query = "SELECT *  
+        FROM subcourse
+        JOIN letter
+        ON subcourse.subTle = letter.subTle WHERE subcourse.subTle = '$subTle'";
+            $post = $db->select($query);
+            if($post){
+                    while($result = $post->fetch_assoc()){
+         ?>
+            <div class="letter-text"> 
+                <a href="okkhorImage.php?okkhorid=<?php echo $result['id']; ?>">
+                    <?php echo $result['sorborno']; ?>
+                </a> 
+            </div>
+
+
+            <?php } ?> <!-- while loop end -->
+            <?php } else { header("Location:404.php");}  ?><!-- if end --> 
+
+
+        </div>
+
+    </div>
+
+
+    <!-- letter css end here  -->
+
+
+
+
+<!-- footer  -->
+<?php include 'inc/footer.php'; ?>
+<!-- footer  -->
+<!-- header  -->
+<?php include 'inc/header.php'; ?>
+<!-- header  -->
+
+<div class="m-4"></div>
+<a href="okkhor.php?subTle=<?php echo $result['subTle']; ?>" class="btn btn-danger ml-4 text-white" > <i class="fas fa-arrow-left"></i> Back</a>
+
+<!-- php -->
+<?php
+    if(!isset($_GET['okkhorid']) || $_GET['okkhorid'] == NULL){
+        header("Location: 404.php");
+    }else{
+        $id = $_GET['okkhorid'];
+    }
+?>
+<!-- php -->
+
+
+    <!-- letter html start here  -->
+
+    <div style="margin:30px;"></div>
+    
+    <div class="container">
+        <div class="row">
+
+
+        <?php
+        $query = "SELECT * FROM letter WHERE id = '$id'";
+            $post = $db->select($query);
+            if($post){
+                    while($result = $post->fetch_assoc()){
+         ?>
+
+            <audio autoplay>
+                <source src="<?php echo $result['audio']; ?>" type="audio/mpeg">
+            </audio>
+
+            <div class="col-md-12">
+                <img class="letter-img" src="<?php echo $result['image']; ?>" alt="">
+            </div>
+
+            <?php } ?> <!-- while loop end -->
+            <?php } else { header("Location:404.php");}  ?><!-- if end --> 
+
+
+
+        </div>
+
+    </div>
+
+<div class="m-5"></div>
+    <!-- letter css end here  -->
+
+
+
+
+<!-- footer  -->
+<?php include 'inc/footer.php'; ?>
+<!-- footer  -->
+<!-- header  -->
+<?php include 'inc/header.php'; ?>
+<!-- header  -->
+
+            <!-- php -->
+            <?php
+                    $id =  Session::get("uid");
+
+                    $query = "SELECT * FROM tbl_user where id = $id";
+                    $post = $db->select($query);
+                    if($post){
+                            while($result = $post->fetch_assoc()){      
+                ?>
+            <!-- php -->
+
+                <div style="margin:100px"></div>
+
+                <div class="container">
+                    <table class="profile-table">
+                        <tr>
+                            <td width="25%"><b>Profile image</b></td>
+                            <td width="5%"><b>: </b></td>
+                            <td><p><b> </b><img src="<?php echo $result['userImage']; ?>" class="profile-img" alt="" style="height:100px; width:100px;"></p></td>
+                        </tr>
+                        <tr>
+                            <td><b>Name</b></td>
+                            <td><b>: </b></td>
+                            <td><?php echo $result['name']; ?></td>
+                        </tr>
+                        <tr>
+                            <td><b>User Name</b></td>
+                            <td><b>: </b></td>
+                            <td><?php echo $result['userName']; ?></td>
+                        </tr>
+                        <tr>
+                            <td><b>Email</b></td>
+                            <td><b>: </b></td>
+                            <td><?php echo $result['email']; ?></td>
+                        </tr>
+                        
+                    </table>
+                </div>
+
+
+
+            <?php } ?> <!-- while loop end -->
+
+<?php } else { header("Location:404.php");}  ?><!-- if end --> 
+
+<div style="margin:100px"></div>
+
+<!-- footer  -->
+<?php include 'inc/footer.php'; ?>
+<!-- footer  -->
+<!-- header  -->
+<?php include 'inc/header.php'; ?>
+<!-- header  -->
+
+<?php 
+    $login = Session::get("userlogin");
+    if ($login == false) {
+        header("Location:signIn.php");
+    }
+?>
+
+<?php 
+    $question = $exm->getQuestion();
+    $total = $exm->getTotalRow();
+?>
+
+    <div class="mt-5 mb-5" style="height:525px;">
+        <h1 class="text-center">Welcome to Online Exam</h1>
+        <div class="container">
+            <h4>This is multiple choice question to test your knowledge</h4>
+            <h4><b>Total Question No:</b> <?php echo $total; ?></h4>
+            <h4><b>Question Type:</b> Multiple Choice</h4>
+            <div class="text-center">
+                <a href="test.php?q=<?php echo $question['quesNo']; ?>" class="btn btn-success">Start quize</a>
+            </div>
+        </div>
+    </div>
+
+<!-- footer  -->
+<?php include 'inc/footer.php'; ?>
+<!-- footer  -->
+# kidslearning
+
+<!-- header  -->
+<?php include 'inc/header.php'; ?>
+<!-- header  -->
+
+
+    <?php
+        if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])){
+            $userLogin = $us->userLogin($_POST);
+        }
+    ?>
+
+ <!-- main -->
+ <div class="main-div" id="login-main-div">
+            <div class="layout-main">
+            <div class="part-one">
+                <div>
+                    <div class="title">
+                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets3.lottiefiles.com/packages/lf20_3vbOcw.json"  background="transparent"  speed="1"  style="width: 300px; height: 200px;"  loop  autoplay></lottie-player>
+                        <p class="font">Sign in to your account</p>
+
+                        <?php
+                            if (isset($userLogin)) {
+                                echo $userLogin;
+                            }
+                        ?>
+
+                    </div>
+                    <form action="" method="post">
+                        <div class="input-container">
+                            <i class="fas fa-envelope-open form-icon"></i>
+                            <input class="input-feild" type="text" name="email" placeholder="E-mail">
+                        </div>
+                        
+                        <div class="input-container">
+                            <i class="fas fa-lock form-icon"></i>
+                            <input class="input-feild" type="password" name="password"
+                            placeholder="Password">
+                        </div>
+                        
+                        <input class="button" type="submit" name="login" value="SignIn">
+                        <p style="margin-top:20px">Don't have any account? <a href="signUp.php">SignUp</a></p>
+                
+                    </form>
+                </div>
+           
+            </div>
+            <div class="part-two">
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+            <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_xlmz9xwm.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop autoplay></lottie-player>
+                
+                 </div>
+                
+                
+        </div>
+<!-- main -->
+
+ <!-- footer  -->
+<?php include 'inc/footer.php'; ?>
+<!-- footer  -->
+<!-- header  -->
+<?php include 'inc/header.php'; ?>
+<!-- header  -->
+
+
+<?php
+        if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register'])){
+            $userReg = $us->userRegistration($_POST, $_FILES);
+        }
+?>
+
+
+
+ <!-- main -->
+ <div class="main-div">
+           
+            <div class="layout-main">
+            <div class="part-one">
+                <div>
+                    <div class="title">
+                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets3.lottiefiles.com/packages/lf20_3vbOcw.json"  background="transparent"  speed="1"  style="width: 300px; height: 200px;"  loop  autoplay></lottie-player>
+                        <p class="font">Sign Up for your account</p>
+
+                        <?php
+                            if (isset($userReg)) {
+                                echo $userReg;
+                            }
+                        ?>
+
+                    </div>
+                    <form action="" method="POST" enctype = "multipart/form-data">
+                        <div class="input-container">
+                            <input type="file" name="image" value="image-upload" class="image-upload">
+                        </div>
+                        <div class="input-container">
+                            <i class="fas fa-signature form-icon"></i>
+                            <input class="input-feild" type="text" name="name" placeholder="Name">
+                        </div>
+                        <div class="input-container">
+                        <i class="fas fa-signature form-icon"></i>
+                            <input class="input-feild" type="text" name="userName" placeholder="Username">
+                        </div>
+                        <div class="input-container">
+                            <i class="fas fa-envelope-open form-icon"></i>
+                            <input class="input-feild" type="text" name="email" placeholder="E-mail">
+                        </div>
+                        <div class="input-container">
+                            <i class="fas fa-lock form-icon"></i>
+                            <input class="input-feild" type="password" name="password"
+                            placeholder="Password">
+                        </div>
+                        <br>
+                        <input class="button" type="submit" name="register" value="SignUp">
+                
+                    </form>
+                </div>
+           
+            </div>
+            <div class="part-two">
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+            <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_xlmz9xwm.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop autoplay></lottie-player>
+                
+                 </div>
+                
+                
+        </div>
+<!-- main -->
+
+ <!-- footer  -->
+<?php include 'inc/footer.php'; ?>
+<!-- footer  -->
+<!-- header  -->
+<?php include 'inc/header.php'; ?>
+<!-- header  -->
+ 
+
+<!-- php -->
+<?php
+    if(!isset($_GET['id']) || $_GET['id'] == NULL){
+        header("Location: 404.php");
+    }else{
+        $id = $_GET['id'];
+    }
+?>
+<!-- php -->
+
+
+
+ <!-- Bangla Book part start here -->
+
+
+<div id="bangla-sikkha">
+
+<div style="margin: 100px;"></div>    
+
+    <div class="container">
+  
+      <div class="row row-card-main">
+
+
+      <?php
+        $query = "SELECT *  
+        FROM subcourse
+        JOIN course
+        ON subcourse.subId = course.subId WHERE subcourse.subLd = '$id'";
+        $post = $db->select($query);
+        if($post){
+                while($result = $post->fetch_assoc()){
+      ?>
+
+
+            <div class="col-md-6">
+                    <div class="content-wrapper-subject">
+                        <a href="okkhor.php?subTle=<?php echo $result['subTle']; ?>" class="link-style">
+                            <img class="subject-cover-image scimg-sub" src="<?php echo $result['subImage']; ?>" alt="">
+                            <p class="subject-cover-text"><?php echo $result['subTitle']; ?></p>
+                        </a>
+                    </div>
+                </div>
+
+
+            <?php } ?> <!-- while loop end -->
+            <?php } else { header("Location:404.php");}  ?><!-- if end --> 
+
+    </div>
+</div>
+
+
+            <div style="margin: 50px;"></div>
+
+    <!-- Bangla Book part end here -->
+
+<!-- footer  -->
+<?php include 'inc/footer.php'; ?>
+<!-- footer  -->
+<!-- header  -->
+<?php include 'inc/header.php'; ?>
+<!-- header  -->
+<?php
+    Session::checkSession();
+?>
+
+<?php
+    if(isset($_GET['q'])){
+        $number = (int)$_GET['q'];
+    }else{
+        header("location:quize.php");
+    }
+    $total    = $exm->getTotalRow();
+    $question = $exm->getQuestionByNumber($number);
+?>
+
+<?php
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $process = $pro-> processData($_POST);
+    }
+?>
+
+
+
+    <!-- body -->
+        <div class="container mt-5 mb-5">
+            <h1>Question <?php echo $question['quesNo']; ?> out of <?php echo $total; ?></h1>
+            <form action="" method="POST">
+            <table class="text-tbale">
+                <thead>
+                    <tr>
+                        <th width="15%">Question <?php echo $question['quesNo']; ?></th>
+                        <th width="5%">:</th>
+                        <th>
+                            <audio controls>
+                                <source src="admin/<?php echo $question['ques']; ?>">
+                            </audio>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td colspan="3">
+                        <?php 
+                        $answer = $exm-> getAnswer($number);
+
+                        if ($answer) {
+                            while ($result = $answer->fetch_assoc()) {       
+                        ?>
+
+                            <input type="radio" name="ans" value="<?php echo $result['id'] ?>"/>
+                             <?php echo $result['ans'] ?> <br>
+
+                            <?php   } } ?>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" name="submit" value="Next Question" class="btn btn-danger">
+                            <input type="hidden" name="number" value="<?php echo $number; ?>">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            </form>
+        </div>
+    <!-- body -->
+
+
+<!-- footer  -->
+<?php include 'inc/footer.php'; ?>
+<!-- footer  -->
+<!-- header  -->
+<?php include 'inc/header.php'; ?>
+<!-- header  -->
+<?php
+    Session::checkSession();
+    $total    = $exm->getTotalRow();
+?>
+    <!-- body -->
+        <div class="container mt-5 mb-5">
+            <h1 class="text-center m-4">All Question and Ans of <?php echo $total; ?></h1>
+            <table class="text-tbale">
+                <?php 
+                    $getQues = $exm->getQueByOrder();
+                    if ($getQues) {
+                       while ($question = $getQues->fetch_assoc()) {
+                ?>
+                <thead>
+                    <tr>
+                        <th width="15%">Question <?php echo $question['quesNo']; ?></th>
+                        <th width="5%">:</th>
+                        <th>
+                            <audio controls>
+                                <source src="admin/<?php echo $question['ques']; ?>">
+                            </audio>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td colspan="3">
+                        <?php 
+                        $number =  $question['quesNo'];
+                        $answer = $exm-> getAnswer($number);
+
+                        if ($answer) {
+                            while ($result = $answer->fetch_assoc()) {   
+                        ?>
+                            <input type="radio"/>
+                            <?php 
+                            if($result['rightAnswer'] == '1'){
+                                echo "<span style='color:green;font-weight:bold'>".$result['ans']."</span>";
+                            } else{
+                                echo $result['ans'] ;
+                            }
+                            ?> <br>
+
+                            <?php   } } ?>
+
+                        </td>
+                    </tr>
+                </tbody>
+                <?php   } } ?>
+
+                
+            </table>
+            <div class="text-center">
+                <a href="test.php" class="btn btn-danger">Start Again</a>
+            </div>
+        </div>
+    <!-- body -->
+
+
+<!-- footer  -->
+<?php include 'inc/footer.php'; ?>
+<!-- footer  -->
